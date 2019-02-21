@@ -46,7 +46,6 @@ const getPromotionNumber = recordsObj => {
 
 function solution(S) {
     const records = formatRecords(S);
-    console.log(records)
     const promotionNumber = getPromotionNumber(records) && getPromotionNumber(records)[0];
     return Object.entries(records).reduce((sum, record) => {
         if(record[0] === promotionNumber) return sum;
