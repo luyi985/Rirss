@@ -10,7 +10,7 @@ const calculatFeeOnDuration = duration => {
     return Math.ceil(duration/60) * 150;
 }
 
-const calculatDuration = duration => {
+const durationToInt = duration => {
     const [hh,mm,ss] = duration.split(':');
     const intHH = parseInt(hh,10);
     const intMM = parseInt(mm,10);
@@ -21,7 +21,7 @@ const calculatDuration = duration => {
 const formatReudcer = (acc={},record) => {
     const [currentRecordDuration ,currentRecordNumber] = record.split(',');
     const numberList = Object.keys(acc);
-    const currentDurationInt = calculatDuration(currentRecordDuration);
+    const currentDurationInt = durationToInt(currentRecordDuration);
 
     if (numberList.includes(currentRecordNumber)) {
         acc[currentRecordNumber].duration += currentDurationInt;
